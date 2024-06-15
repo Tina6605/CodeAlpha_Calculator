@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-image: url("image/cal.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: scroll;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            font-size: 35pt;
+            font-family: Arial Black;
+            color: gold;
+            text-shadow: 3px 3px black;
+        }
+        .calculator {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 10px;
+            font-size: 20pt;
+        }
+        input[type="button"] {
+            padding: 10px 15px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: LavenderBlush;
+            color: Black;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: PINK;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 16pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1><u>Calculator</u></h1>
+        <table>
+            <tr>
+                <td><b>Enter First No.</b></td>
+                <td><input type="text" id="t1" placeholder="Enter Here"></td>
+            </tr>
+            <tr>
+                <td><b>Enter Second No.</b></td>
+                <td><input type="text" id="t2" placeholder="Enter Here"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" id="b1" value="+" onclick="calculate('sum')">
+                    <input type="button" id="b2" value="-" onclick="calculate('sub')">
+                    <input type="button" id="b3" value="*" onclick="calculate('mul')">
+                    <input type="button" id="b4" value="/" onclick="calculate('div')">
+                </td>
+            </tr>
+            <tr>
+                <td><b>Result</b></td>
+                <td><input type="text" id="t3" placeholder="Get Here" readonly></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function calculate(operation) {
+            var a = Number(document.getElementById("t1").value);
+            var b = Number(document.getElementById("t2").value);
+            var c;
+            switch(operation) {
+                case 'sum':
+                    c = a + b;
+                    break;
+                case 'sub':
+                    c = a - b;
+                    break;
+                case 'mul':
+                    c = a * b;
+                    break;
+                case 'div':
+                    c = a / b;
+                    break;
+                default:
+                    c = 'Error';
+            }
+            document.getElementById("t3").value = c;
+        }
+    </script>
+</body>
+</html>
